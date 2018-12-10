@@ -95,3 +95,19 @@ iOS 插件在 2.0.0+ 版本才提供 add**\*\*\*\***Listener 的方法，如果�
 #### 取消弹出 Toast 信息。
 
 解决方法：在加入 JPushPackage 时，将第一个参数设置为 true 即可。第二个参数设置为 true 将不会打印 debug 日志。
+
+
+报错信息：
+Undefined symbols for architecture x86_64:
+  "_dns_free_resource_record", referenced from:
+      -[JPUSHSRVResolver processRecord:length:] in libRCTJCoreModule.a(JPUSHSRVResolver.o)
+  "_dns_parse_resource_record", referenced from:
+      -[JPUSHSRVResolver processRecord:length:] in libRCTJCoreModule.a(JPUSHSRVResolver.o)
+ld: symbol(s) not found for architecture x86_64
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+解决方法：
+在Link Binary With Libraries 中添加 libresolv.tbd 库
+
+报错：方法
+报错：
+
